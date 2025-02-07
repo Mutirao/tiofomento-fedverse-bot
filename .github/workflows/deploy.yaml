@@ -26,5 +26,5 @@ jobs:
         mv deno.json.tmp deno.json
     - uses: denoland/deployctl@v1
       with:
-        project: fedichatbot
+        project: cultura
         entrypoint: ./bot.ts

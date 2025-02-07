@@ -71,34 +71,31 @@ const logger = getLogger("fedichatbot");
 const kv: Deno.Kv = await Deno.openKv();
 
 const bot: Bot<void> = createBot<void>({
-  username: "FediChatBot",
-  name: "FediChatBot",
-  summary: text`An LLM-powered chatbot for the fediverse, powered by ${
-    link("BotKit", "https://botkit.fedify.dev/")
-  } and ${
-    link(
-      "Gemini 2.0 Flash (experimental)",
-      "https://ai.google.dev/gemini-api/docs/models/gemini#gemini-2.0-flash",
-    )
-  }.`,
+  username: "oportunidade",
+  name: "Oportunidade",
+  summary: text`Um chatbot no fedverso equipado com LLM para ajudar no fomento da cultura brasileira. Integrado com ${link("Mapa da Cultura", "https://mapa.cultura.gov.br/")}. Produzido por ${link('Mutirão', "https://mutirao.org.br")}.`,
+
   icon: new URL(
-    "https://raw.githubusercontent.com/fedify-dev/fedichatbot/refs/heads/main/logo.png",
+    "https://raw.githubusercontent.com/mutirao/tiofomento-fedverse-bot/refs/heads/main/logo.png",
   ),
   properties: {
-    "Model": link(
+    "Modelo": link(
       "Gemini 2.0 Flash (experimental)",
       "https://ai.google.dev/gemini-api/docs/models/gemini#gemini-2.0-flash",
     ),
-    "Source code": link("GitHub", "https://github.com/fedify-dev/fedichatbot"),
-    "Powered by": link("BotKit", "https://botkit.fedify.dev/"),
-    "Created by": mention("@hongminhee@hollo.social"),
+    "Código-fonte": link("GitHub", "https://github.com/mutirao/tiofomento-fedverse-bot"),
+    "Fonte de dados": link("Mapa da Cultura", "https://mapa.cultura.gov.br/"),
+    "Produção": link("Mutirão", "https://mutirao.org.br"),
+    "Feito com": link("BotKit", "https://botkit.fedify.dev/"),
+    "Autor": mention("@lpirola@mastodon.social"),
+    "Co-Autor": mention("@uira@mastodon.social"),
   },
   software: {
-    name: "fedichatbot",
+    name: "tiofomento-fedverse-bot",
     version: parseSemVer(metadata.version),
-    repository: new URL("https://github.com/fedify-dev/fedichatbot"),
+    repository: new URL("https://github.com/mutirao/tiofomento-fedverse-bot"),
   },
-  pages: { color: "sand" },
+  pages: { color: "lime" },
   kv: new DenoKvStore(kv),
   queue: new DenoKvMessageQueue(kv),
   behindProxy: Deno.env.get("DENO_DEPLOYMENT_ID") == null,
